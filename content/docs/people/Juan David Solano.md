@@ -1,8 +1,7 @@
 # Juan David Solano
-
-<img src='/assets/JuanSolano.jpg' alt='Foto de Juan Solano' width='200' width='300'>
-
-<img/>
+<div>
+<img src='/assets/JuanSolano.jpg' alt='Foto de Juan Solano' width='200' width='300'/>
+</div>     
 
 ## Sobre mí
 <div style="text-align: justify">
