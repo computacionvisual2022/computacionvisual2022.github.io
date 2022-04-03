@@ -1,7 +1,6 @@
 # Juan David Solano
 
-![Foto de Juan Solano](/assets/JuanSolano.jpg)
-
+<img src='/assets/JuanSolano.jpg' alt='Foto de Juan Solano' width='50%' >
 ## Sobre mí
 <div style="text-align: justify">
    Estudiante de último semestre de pregrado en Ingeniería de Sistemas y Computación de la Universidad Nacional de Colombia, Sede Bogotá, con experiencia laboral en ingeniería de datos, desarrollo web (Node.js, Vue.js, Django) y acercamiento personal al desarrollo móvil. Con dominio de varios lenguajes de programación, principalmente Python.
