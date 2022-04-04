@@ -1,10 +1,10 @@
 # David Leon
 
-![Foto de David Leon](/assets/DavidLeon.jpg =300x300)
+![Foto de David Leon](/assets/DavidLeon.jpg)
 
 ## Sobre mí
 <div style="text-align: justify">
-   Estudiante de octavo semestre de pregrado en Ingeniería de Sistemas y Computación de la Universidad Nacional de Colombia, Sede Bogotá, sin experiencia aún en el campo, pero actualmente realizo un proceso de vinculación a una casa de desarrollo de software que trabaja con BBVA y he trabajado en instalación y mantenimiento de redes de internet.
+   Estudiante de octavo semestre de pregrado en Ingeniería de Sistemas y Computación de la Universidad Nacional de Colombia, Sede Bogotá, sin experiencia aún en el campo, pero actualmente realizo un proceso de vinculación a una casa de desaxrrollo de software que trabaja con BBVA y he trabajado en instalación y mantenimiento de redes de internet.
 </div>
 
 ## Intereses Académicos

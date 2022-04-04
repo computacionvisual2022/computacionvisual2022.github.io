@@ -7,7 +7,7 @@ En un paseo por la historia podemos ver toda una serie de momentos y artilugios 
 
 ##Taumatrópo
 
-![Foto del Taumatrópo](/assets/taumatropo.jpg =200x200)
+![Foto del Taumatrópo](/assets/taumatropo.jpg)
 
 <div style="text-align: justify">
 Un primer paso podríamos decir que es el Taumátropo, un “juguete” inventado en 1824. Consistente en un disco con dos imágenes diferentes a ambos lados y un pedazo de cuerda que permitía girar el disco a una gran velocidad produciendo el efecto de unión de ambas imágenes. El anterior artefacto estaba dirigido a demostrar la persistencia retiniana, pero acabó sentando las bases para otros artefactos más complejos, cómo el Zoótropo, una máquina compuesta por un tambor circular con unas rejillas abiertas, por las cuáles el espectador podía ver el interior del mismo dónde habían dibujos en tiras que, al girar, creaban la ilusión de movimiento.
@@ -15,7 +15,7 @@ Un primer paso podríamos decir que es el Taumátropo, un “juguete” inventad
 
 ##Zoótropo
 
-![Foto del Zoótropo](/assets/zootropo.jpg =200x200)
+![Foto del Zoótropo](/assets/zootropo.jpg)
 
 <div style="text-align: justify">
 Aparecerían más elementos y artefactos con mecanismos similares, tras de todos estos veríamos al mundo asombrarse ante el Kinetoscopio, que con el paso de frames o imagénes fijas a alta velocidad logran el efecto de movimiento. Con la aparición de Collin Ord y su Magic Moving Images o kinegramas que se componen de dos elementos, el primero son los dibujos, fotogramas o patrones de gráficos llamados a adquirir el movimiento, el segundo es una pantalla transparente de plástico con franjas y rayas que hacen la función de lentes que en movimiento se logra el efecto buscado.
