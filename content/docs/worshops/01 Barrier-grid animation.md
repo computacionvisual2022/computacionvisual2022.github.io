@@ -23,23 +23,43 @@ Un primer paso podríamos decir que es el Taumátropo, un “juguete” inventad
 ![Foto del Zoótropo](/assets/zootropo.jpg)
 
 ### Motograph
-<div style="text-align: justify">
-El 14 de marzo de 1896 se una técnica que se usó unos dos años después para la publicación más antigua conocida que usaba una hoja de líneas para crear la ilusión de movimiento en las imágenes. El libro de imágenes en movimiento Motograph fue publicado en Londres a principios de 1898. Venía con una "transparencia" con rayas negras para agregar la ilusión de movimiento a las imágenes del libro.
-</div>
 <div>
 <img src='/assets/motograph1.png' alt='Foto de motograph1' width='400' width='300'/>
+</div>
+<div style="text-align: justify">
+El 14 de marzo de 1896 se una técnica que se usó unos dos años después para la publicación más antigua conocida que usaba una hoja de líneas para crear la ilusión de movimiento en las imágenes. El libro de imágenes en movimiento Motograph fue publicado en Londres a principios de 1898. Venía con una "transparencia" con rayas negras para agregar la ilusión de movimiento a las imágenes del libro. Una diferencia importante con nuestra ilusión objetivo se trata de que la imagen del fondo no se trataba de un kinegrama, sino de una imagen normal.
+</div>
+<div>
 <img src='/assets/motograph2.png' alt='Foto de motograph2' width='400' width='300'/>
 <img src='/assets/motograph3.png' alt='Foto de motograph3' width='400' width='300'/>
 </div> 
+
+### Los autoestereogramas de Auguste Berthier
+<div style="text-align: justify">
+En mayo de 1896, Auguste Berthier publicó un artículo sobre la historia de las imágenes estereoscópicas en la revista científica francesa Le Cosmos , que incluía su método para crear un autoestereograma. Las tiras alternas de la imagen izquierda y derecha de un negativo estereoscópico tradicional debían recomponerse como una imagen entrelazada, preferiblemente durante la impresión de la imagen en papel. La imagen entrelazada junto con un paralaje de barrera permitía que cada ojo viese sólo una parte de la imagen estereoscópica.
+</div>
+<div>
+<img src='/assets/Berhier.jpg' alt='Estereograma de Berthier' width='400' width='300'/>
+</div>
+
+### Los autoestereogramas animados de Eugène Estanave
+<div style="text-align: justify">
+Estanave solicitó la patente francesa para un dispositivo de estereofotografía y estereoscopía utilizando hojas de líneas. Incluía sus imágenes "cambiantes" que aplicaban el principio del "signo cambiante" de Ives a la fotografía animada, por ejemplo, el retrato de una mujer con los ojos abiertos o cerrados según el ángulo de visión. El 3 de febrero de 1910 solicitó una adición a su patente para incluir fotografía estereoscópica animada. Este sistema utilizaba hojas de líneas con líneas verticales y horizontales, y combinaba cuatro imágenes: dos pares estereoscópicos de dos momentos diferentes. El 1 de agosto de 1908 Estanave obtuvo la patente francesa para una placa fotográfica autoestereoscópica. Esta placa fue expuesta y revelada para crear una imagen estereoscópica positiva, evitando el problema de alinear la fotografía entrelazada con una pantalla de líneas. 
+<div>
+
+### Ombro-Cinema
+<div style="text-align: justify">
+Los juguetes de Ombro-Cinéma funcionaban con rollos de papel giratorios con secuencias de imágenes impresas como animaciones entrelazadas de dos fotogramas: delgadas franjas verticales espaciadas regularmente de un fotograma de la animación se alternaban con franjas del siguiente fotograma, alternativamente ocultas por negro espaciado regular. rayas verticales en un panel de visualización transparente. En algunas versiones, las rayas en el panel de visualización se disfrazaron como una cerca de estacas. Los juguetes de Ombro-Cinema tenían un chasis de madera o cartón con un bastidor y una manivela para desplazar la imagen por el panel de visualización. 
+<div>
+<div>
+<img src='/assets/ombro-cinema.jpg' alt='ombro-cinema' width='400' width='300'/>
+</div>
 
 <div style="text-align: justify">
 Aparecerían más elementos y artefactos con mecanismos similares, tras de todos estos veríamos al mundo asombrarse ante el Kinetoscopio, que con el paso de frames o imagénes fijas a alta velocidad logran el efecto de movimiento. Con la aparición de Collin Ord y su Magic Moving Images o kinegramas que se componen de dos elementos, el primero son los dibujos, fotogramas o patrones de gráficos llamados a adquirir el movimiento, el segundo es una pantalla transparente de plástico con franjas y rayas que hacen la función de lentes que en movimiento se logra el efecto buscado.
 </div>
 
-### Los autoestereogramas de Auguste Berthier
-<div style="text-align: justify">
 
-</div>
 
 ## Resultados
 
