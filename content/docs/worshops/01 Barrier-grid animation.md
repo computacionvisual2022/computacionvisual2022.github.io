@@ -63,7 +63,7 @@ Aparecerían más elementos y artefactos con mecanismos similares, tras de todos
 
 
 ## Resultados
-
+{{< p5-div sketch="/workshops/barrier-grid/barrier-grid.js" >}}
 
 ## Conclusiones y trabajos futuros
 <div style="text-align: justify">
