@@ -48,12 +48,13 @@ Estanave solicitó la patente francesa para un dispositivo de estereofotografía
 <div>
 
 ### Ombro-Cinema
-<div style="text-align: justify">
-Los juguetes de Ombro-Cinéma funcionaban con rollos de papel giratorios con secuencias de imágenes impresas como animaciones entrelazadas de dos fotogramas: delgadas franjas verticales espaciadas regularmente de un fotograma de la animación se alternaban con franjas del siguiente fotograma, alternativamente ocultas por negro espaciado regular. rayas verticales en un panel de visualización transparente. En algunas versiones, las rayas en el panel de visualización se disfrazaron como una cerca de estacas. Los juguetes de Ombro-Cinema tenían un chasis de madera o cartón con un bastidor y una manivela para desplazar la imagen por el panel de visualización. 
-<div>
 <div>
 <img src='/assets/ombro-cinema.jpg' alt='ombro-cinema' width='400' width='300'/>
 </div>
+
+<div style="text-align: justify">
+Los juguetes de Ombro-Cinéma funcionaban con rollos de papel giratorios con secuencias de imágenes impresas como animaciones entrelazadas de dos fotogramas: delgadas franjas verticales espaciadas regularmente de un fotograma de la animación se alternaban con franjas del siguiente fotograma, alternativamente ocultas por negro espaciado regular. rayas verticales en un panel de visualización transparente. En algunas versiones, las rayas en el panel de visualización se disfrazaron como una cerca de estacas. Los juguetes de Ombro-Cinema tenían un chasis de madera o cartón con un bastidor y una manivela para desplazar la imagen por el panel de visualización. 
+<div>
 
 <div style="text-align: justify">
 Aparecerían más elementos y artefactos con mecanismos similares, tras de todos estos veríamos al mundo asombrarse ante el Kinetoscopio, que con el paso de frames o imagénes fijas a alta velocidad logran el efecto de movimiento. Con la aparición de Collin Ord y su Magic Moving Images o kinegramas que se componen de dos elementos, el primero son los dibujos, fotogramas o patrones de gráficos llamados a adquirir el movimiento, el segundo es una pantalla transparente de plástico con franjas y rayas que hacen la función de lentes que en movimiento se logra el efecto buscado.
