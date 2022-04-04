@@ -39,7 +39,7 @@ El 14 de marzo de 1896 se una técnica que se usó unos dos años después para 
 En mayo de 1896, Auguste Berthier publicó un artículo sobre la historia de las imágenes estereoscópicas en la revista científica francesa Le Cosmos , que incluía su método para crear un autoestereograma. Las tiras alternas de la imagen izquierda y derecha de un negativo estereoscópico tradicional debían recomponerse como una imagen entrelazada, preferiblemente durante la impresión de la imagen en papel. La imagen entrelazada junto con un paralaje de barrera permitía que cada ojo viese sólo una parte de la imagen estereoscópica.
 </div>
 <div>
-<img src='/assets/Berhier.jpg' alt='Estereograma de Berthier' width='400' width='300'/>
+<img src='/assets/Berthier.jpg' alt='Estereograma de Berthier' width='400' width='300'/>
 </div>
 
 ### Los autoestereogramas animados de Eugène Estanave
