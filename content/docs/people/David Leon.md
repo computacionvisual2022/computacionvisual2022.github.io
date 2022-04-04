@@ -1,6 +1,6 @@
 # David Leon
 
-![Foto de David Leon](/assets/DavidLeon.jpg)
+![Foto de David Leon](/assets/DavidLeon.jpg =300x300)
 
 ## Sobre mí
 <div style="text-align: justify">
