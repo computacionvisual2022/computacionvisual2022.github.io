@@ -7,7 +7,7 @@ La animación de rejilla de barrera es un efecto de animación creado al mover u
 
 ## Contexto
 <div style="text-align: justify">
-En un paseo por la historia podemos ver toda una serie de momentos y artilugios claves relacionados a los campos de la ciencia y el arte que nos entregaron la posibilidad de dilucidar lo que es una imagen en movimiento. Empecemos por entender que es la persistencia retiniana, pues es un fenómeno que afirma que una imagen permanece en la retina una décima de segundo más después de ser vista, para luego desaparecer por completo, según este hallazgo podemos ver la realidad cómo una secuencia de imágenes ininterrumpidas, si no existiera veríamos la realidad como una sucesión de imágenes estáticas e independientes.
+En un paseo por la historia podemos ver toda una serie de momentos y artilugios claves relacionados a los campos de la ciencia y el arte que nos entregaron la posibilidad de dilucidar lo que es una imagen en movimiento. Empecemos por entender que es la persistencia retiniana, pues es un fenómeno que afirma que una imagen permanece en la retina una décima de segundo más después de ser vista, para luego desaparecer por completo, según este hallazgo podemos ver la realidad cómo una secuencia de imágenes ininterrumpidas, si no existiera veríamos la realidad como una sucesión de imágenes estáticas e independientes.[5]
 </div>
 
 ### Taumatrópo
@@ -15,7 +15,7 @@ En un paseo por la historia podemos ver toda una serie de momentos y artilugios 
 ![Foto del Taumatrópo](/assets/taumatropo.jpg) [1]
 
 <div style="text-align: justify">
-Un primer paso podríamos decir que es el Taumátropo, un “juguete” inventado en 1824. Consistente en un disco con dos imágenes diferentes a ambos lados y un pedazo de cuerda que permitía girar el disco a una gran velocidad produciendo el efecto de unión de ambas imágenes. El anterior artefacto estaba dirigido a demostrar la persistencia retiniana, pero acabó sentando las bases para otros artefactos más complejos, cómo el Zoótropo, una máquina compuesta por un tambor circular con unas rejillas abiertas, por las cuáles el espectador podía ver el interior del mismo dónde habían dibujos en tiras que, al girar, creaban la ilusión de movimiento.
+Un primer paso podríamos decir que es el Taumátropo, un “juguete” inventado en 1824. Consistente en un disco con dos imágenes diferentes a ambos lados y un pedazo de cuerda que permitía girar el disco a una gran velocidad produciendo el efecto de unión de ambas imágenes. El anterior artefacto estaba dirigido a demostrar la persistencia retiniana, pero acabó sentando las bases para otros artefactos más complejos, cómo el Zoótropo, una máquina compuesta por un tambor circular con unas rejillas abiertas, por las cuáles el espectador podía ver el interior del mismo dónde habían dibujos en tiras que, al girar, creaban la ilusión de movimiento [4].
 </div>
 
 ### Zoótropo
@@ -166,14 +166,14 @@ En el futuro tenemos proyectado realizar e implementar kinegramas con diferentes
 [2]
 [Zoótropo](https://en.wikipedia.org/wiki/Zoetrope)  
 
-[#]
-[Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  
+[3]
+[Sarcone](https://www.giannisarcone.com/Kinegrams.html)  
 
-[#]
-[Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  
+[4]
+[Lenticular](https://www.3dlenticularfactory.com/es/blog-post/De-las-sombras-chinescas-a-los-kinegramas-un-paseo-por-la-historia-del-lenticular)  
 
-[#]
-[Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  
+[5]
+[Persistence](https://es.wikipedia.org/wiki/Persistencia_de_la_visi%C3%B3n)  
 
 [#]
 [Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  
