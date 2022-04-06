@@ -2,7 +2,7 @@
 
 ## Introducción 
 <div style="text-align: justify">
-La animación de rejilla de barrera es un efecto de animación creado al mover una superposición transparente a rayas a través de una composición de imágenes entrelazadas llamada kinegrama. Como los espacios en blanco del patrón son transparentes, a medida que la superposición se desliza a alta velocidad por el Kinegrama, se hacen visibles diferentes secciones del mismo. El cerebro relaciona esta sucesión de imágenes que aparecen juntas, creando la ilusión de movimiento fluido.[1]
+La animación de rejilla de barrera es un efecto de animación creado al mover una superposición transparente a rayas a través de una composición de imágenes entrelazadas llamada kinegrama. Como los espacios en blanco del patrón son transparentes, a medida que la superposición se desliza a alta velocidad por el Kinegrama, se hacen visibles diferentes secciones del mismo. El cerebro relaciona esta sucesión de imágenes que aparecen juntas, creando la ilusión de movimiento fluido. [1]
 </div>
 
 ## Contexto
@@ -181,9 +181,7 @@ En el futuro tenemos proyectado realizar e implementar kinegramas con diferentes
 [Wikipedia](https://en.wikipedia.org/wiki/Barrier-grid_animation_and_stereography#Kinegram)
 
 [7]
-[Mothograph_Video]  (https://youtu.be/ZIJSdiwWwgo)  
-
-  
+[Mothograph](https://youtu.be/ZIJSdiwWwgo)  
 
 [#]
 [Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  
