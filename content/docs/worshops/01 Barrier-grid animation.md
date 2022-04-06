@@ -12,7 +12,7 @@ En un paseo por la historia podemos ver toda una serie de momentos y artilugios 
 
 ### Taumatrópo
 
-![Foto del Taumatrópo](/assets/taumatropo.jpg)
+![Foto del Taumatrópo](/assets/taumatropo.jpg) [1]
 
 <div style="text-align: justify">
 Un primer paso podríamos decir que es el Taumátropo, un “juguete” inventado en 1824. Consistente en un disco con dos imágenes diferentes a ambos lados y un pedazo de cuerda que permitía girar el disco a una gran velocidad produciendo el efecto de unión de ambas imágenes. El anterior artefacto estaba dirigido a demostrar la persistencia retiniana, pero acabó sentando las bases para otros artefactos más complejos, cómo el Zoótropo, una máquina compuesta por un tambor circular con unas rejillas abiertas, por las cuáles el espectador podía ver el interior del mismo dónde habían dibujos en tiras que, al girar, creaban la ilusión de movimiento.
@@ -20,7 +20,7 @@ Un primer paso podríamos decir que es el Taumátropo, un “juguete” inventad
 
 ### Zoótropo
 
-![Foto del Zoótropo](/assets/zootropo.jpg)
+![Foto del Zoótropo](/assets/zootropo.jpg) [2]
 
 ### Motograph
 <div>
@@ -65,65 +65,87 @@ Aparecerían más elementos y artefactos con mecanismos similares, tras de todos
 ```js
 {{</* p5-instance-div id="lilac-chaser" >}}
    new p5((p) => {
-      let frames = [], nFrames = 8, strip = 2;
-      let baseImage, barMask, x1 = -400, isMoving = true;
+   let gif, gifFrames, baseImage, barMask, strip = 1, xSpeed = 0.5, nFrames, xMove, isMoving = true;
 
-      p.preload = () => {
-         for (let i = 0; i < nFrames; i++)
-            frames.push(p.loadImage(`/workshops/barrier-grid/frame${i}.jpg`));
-      }
+   p.preload = () => {
+      gif = p.loadImage('/workshops/barrier-grid/batman_running.gif');
+      gifFrames = gif;
+   }
 
-      p.setup = () => {
-         p.createCanvas(400, 225);
-         p.pixelDensity(1);
+   p.setup = () => {
+      p.createCanvas(730, 250);
+      p.pixelDensity(1);     
+   };
 
+   p.draw = async() => {
+      if (gifFrames) {
          // Create Base Image
-         baseImage = p.createGraphics(400, 225);
+         baseImage = p.createGraphics(p.width / 2, p.height);
          baseImage.pixelDensity(1);
+         nFrames = gifFrames.numFrames();
+         p.background(255);
 
          for (let i = 0; i < nFrames; i++) {
-            frames[i].loadPixels();
+            gifFrames.setFrame(i);
+            p.image(gifFrames, 0, 0, p.width / 2, p.height);
+            p.loadPixels();
 
-            for (let y = 0; y <= frames[0].height; y++) {
-               for (let x = i * strip; x <= frames[0].width; x += 16) {
-                  baseImage.set(x, y, frames[i].get(x, y));
-                  baseImage.set(x + 1, y, frames[i].get(x + 1, y));
+            for (let y = 0; y < p.height; y++) {
+               for (let x = i * strip; x < p.width / 2; x += strip * nFrames) {
+                  let k = (x + y * p.width) * 4;
+                  let red = p.pixels[k];
+                  let green = p.pixels[k + 1];
+                  let blue = p.pixels[k + 2];
+
+                  for (let j = 0; j < strip; j++)
+                     baseImage.set(x + j, y, p.color(red, green, blue));
                }
             }
+
+            p.updatePixels();
          }
 
          baseImage.updatePixels();
 
          // Create Bar Mask
-         barMask = p.createGraphics(400, 225);
+         barMask = p.createGraphics(p.width / 2, p.height);
          barMask.pixelDensity(1);
-
          barMask.loadPixels();
-         for (let x = 0; x < 40 * nFrames; x += 16) {
-            for (let y = 0; y <= frames[0].height; y++) {
-               for (let x = 0; x <= frames[0].width; x += 16) {
-                  for (let w = 0; w < strip * nFrames - 1; w++)
-                     barMask.set(x + w, y, p.color('black'));
-               }
+
+         for (let x = 0; x <= p.width / 2; x += strip * nFrames) {
+            for (let y = 0; y <= p.height; y++) {
+               for (let w = 0; w < strip * nFrames - strip; w++)
+                  barMask.set(x + w, y, p.color('black'));
             }
          }
 
          barMask.updatePixels();
-      };
-      
-      p.draw = () => {
-         p.image(baseImage, 0, 0);
-         p.image(barMask, x1, 0);
+         p.background(255);
+         xMove = -p.width / 2;
+         gifFrames = null;
+      }
 
+      // Draw base image
+      if (baseImage) {
+         p.image(baseImage, 0, 0, p.width / 2, p.height);
+         p.line(p.width / 2, 0, p.width / 2, p.height);
+      }
+
+      // Draw and move bar mask
+      if (barMask) {
+         p.image(barMask, xMove, 0);
          if (isMoving) {
-            if (x1 > 550) { x1 = -400 }
-            else { x1 = x1 + 1; }
+            if (xMove > p.width / 2) { xMove = -p.width / 2; }
+            else if (strip == 1) { xMove += strip * xSpeed; }
+            else { xMove += strip * Math.ceil(xSpeed); }
          }
       }
 
-      p.mousePressed = () => { isMoving = !isMoving; }
+      if (gif) { p.image(gif, p.width / 2, 0, p.width / 2, p.height) }
+   }
 
-   }, "barrier-grid");
+   p.mousePressed = () => { isMoving = !isMoving; }
+}, "barrier-grid");
 {{</p5-instance-div */>}}
 ```
 {{< /details >}}
@@ -132,7 +154,26 @@ Aparecerían más elementos y artefactos con mecanismos similares, tras de todos
 
 ## Conclusiones y trabajos futuros
 <div style="text-align: justify">
-A medida en que ahondamos en la creación de kinegramas podemos evidenciar ciertos aspectos que permiten mejorar la ilusión óptica, principalmente el uso del fondo en color blanco permite al espectador mantener un frame en su retina mientras se le presenta el siguiente, al usar colores distintos la percepción de la ilusión pierde un poco el efecto que se quiere lograr.
+A medida en que ahondamos en la creación de kinegramas podemos evidenciar ciertos aspectos que permiten mejorar la ilusión óptica, principalmente el uso del fondo en color blanco permite al espectador mantener un frame en su retina mientras se le presenta el siguiente, al usar colores distintos la percepción de la ilusión pierde un poco el efecto que se quiere lograr.  
 El uso en una cantidad elevada de frames por kinegrama hace que las barras de la rejilla sean más gruesas y por lo tanto no se percibe de la manera correcta la imagen a la que se quiere dar movimiento.
 En el futuro tenemos proyectado realizar e implementar kinegramas con diferentes patrones en la rejilla, cómo circulos en la parte visible y los frames plasmados en el mismo tipo de patrón para crear mayores efectos de movimiento y buscando lograr una mayor precisión.
 </div>
+
+## Bibliografía
+[1]
+[Taumatrópo](https://museovirtual.filmoteca.unam.mx/temas-cine/juguetes-opticos/taumatropo/)  
+
+[2]
+[Zoótropo](https://en.wikipedia.org/wiki/Zoetrope)  
+
+[#]
+[Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  
+
+[#]
+[Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  
+
+[#]
+[Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  
+
+[#]
+[Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  

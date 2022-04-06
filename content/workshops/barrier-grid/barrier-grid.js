@@ -1,6 +1,5 @@
 new p5((p) => {
    let gif, gifFrames, baseImage, barMask, strip = 1, xSpeed = 0.5, nFrames, xMove, isMoving = true;
-   let input, button;
 
    p.preload = () => {
       gif = p.loadImage('/workshops/barrier-grid/batman_running.gif');
@@ -9,21 +8,16 @@ new p5((p) => {
 
    p.setup = () => {
       p.createCanvas(730, 250);
-      p.pixelDensity(1);
-      p.createFileInput(handleFile);
-      input = p.createInput();
-      button = p.createButton('submit');
-      button.mousePressed(loadFileFromUrl);
+      p.pixelDensity(1);     
    };
 
-   p.draw = () => {
+   p.draw = async() => {
       if (gifFrames) {
          // Create Base Image
          baseImage = p.createGraphics(p.width / 2, p.height);
          baseImage.pixelDensity(1);
          nFrames = gifFrames.numFrames();
          p.background(255);
-         p.print(gifFrames.numFrames());
 
          for (let i = 0; i < nFrames; i++) {
             gifFrames.setFrame(i);
@@ -84,22 +78,5 @@ new p5((p) => {
       if (gif) { p.image(gif, p.width / 2, 0, p.width / 2, p.height) }
    }
 
-   // Función para cargar el archivo GIF
-   const handleFile = async (file) => {
-      gif = null, gifFrames = null; baseImage = null; barMask = false; isMoving = true, currentFrame = 0;
-      if (file.type === 'image' && file.subtype === 'gif') {
-         gif = await p.loadImage(file.data);
-         gifFrames = gif;
-      }
-
-      else { gifFrames = null; }
-   }
-
-   const loadFileFromUrl = async () => {
-      gif = await p.loadImage(input.value());
-      gifFrames = gif;
-   }
-
    p.mousePressed = () => { isMoving = !isMoving; }
-
 }, "barrier-grid");
