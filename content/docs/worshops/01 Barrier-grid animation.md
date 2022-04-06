@@ -181,7 +181,4 @@ En el futuro tenemos proyectado realizar e implementar kinegramas con diferentes
 [Wikipedia](https://en.wikipedia.org/wiki/Barrier-grid_animation_and_stereography#Kinegram)
 
 [7]
-[Mothograph](https://youtu.be/ZIJSdiwWwgo)  
-
-[#]
-[Enlace](https://computacionvisual2022.github.io/docs/worshops/01-Barrier-grid-animation/)  
+[Mothograph](https://youtu.be/ZIJSdiwWwgo)
