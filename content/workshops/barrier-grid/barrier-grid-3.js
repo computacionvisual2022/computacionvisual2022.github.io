@@ -1,8 +1,8 @@
 new p5((p) => {
-   let gif, gifFrames, baseImage, barMask, strip = 1, xSpeed = 0.16, nFrames, xMove, isMoving = true;
+   let gif, gifFrames, baseImage, barMask, strip = 1, xSpeed = 0.19, nFrames, xMove, isMoving = true;
 
    p.preload = () => {
-      gif = p.loadImage('/workshops/barrier-grid/batman_running.gif');
+      gif = p.loadImage('/workshops/barrier-grid/pikachu.gif');
       gifFrames = gif;
    }
 

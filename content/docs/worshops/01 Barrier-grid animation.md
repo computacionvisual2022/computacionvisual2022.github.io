@@ -154,6 +154,10 @@ Aparecerían más elementos y artefactos con mecanismos similares, tras de todos
 
 {{< p5-div sketch="/workshops/barrier-grid/barrier-grid.js" >}}
 
+{{< p5-div sketch="/workshops/barrier-grid/barrier-grid-2.js" >}}
+
+{{< p5-div sketch="/workshops/barrier-grid/barrier-grid-3.js" >}}
+
 ## Conclusiones y trabajos futuros
 <div style="text-align: justify">
 A medida en que ahondamos en la creación de kinegramas podemos evidenciar ciertos aspectos que permiten mejorar la ilusión óptica, principalmente el uso del fondo en color blanco permite al espectador mantener un frame en su retina mientras se le presenta el siguiente, al usar colores distintos la percepción de la ilusión pierde un poco el efecto que se quiere lograr.  
