@@ -125,11 +125,11 @@ function sphereBrush(point) {
    pop();
 }
 
-function squareBrush(point) {
+function boxBrush(point) {
   push();
   noStroke();
   fill(point.color);
-  sphere(point.thick,4,4);
+  box(point.thick);
   pop();
 }
 
