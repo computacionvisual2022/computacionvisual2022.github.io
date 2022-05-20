@@ -24,9 +24,9 @@ let points;
 let record;
 
 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-function sleep(ms) {
-   return new Promise(resolve => setTimeout(resolve, ms));
-}
+// function sleep(ms) {
+//    return new Promise(resolve => setTimeout(resolve, ms));
+// }
 
 function setup() {
    const canvas = createCanvas(600, 450, WEBGL);
@@ -52,7 +52,7 @@ function setup() {
    color.position(width - 70, 40);
    thick = 1;
    // select initial brush
-   brush = sphereBrush;
+   brush = squareBrush;
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
@@ -123,6 +123,14 @@ function sphereBrush(point) {
    fill(point.color);
    sphere(point.thick);
    pop();
+}
+
+function squareBrush(point) {
+  push();
+  noStroke();
+  fill(point.color);
+  sphere(point.thick,4,4);
+  pop();
 }
 
 function keyPressed() {
