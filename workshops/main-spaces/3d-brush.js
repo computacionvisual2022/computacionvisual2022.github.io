@@ -12,6 +12,7 @@
 
 // Brush controls
 let color;
+let thick;
 let depth;
 let brush;
 
@@ -22,85 +23,128 @@ let escorzo;
 let points;
 let record;
 
-function setup() {
-  createCanvas(600, 450, WEBGL);
-  // easycam stuff
-  let state = {
-    distance: 250,           // scalar
-    center: [0, 0, 0],       // vector
-    rotation: [0, 0, 0, 1],  // quaternion
-  };
-  easycam = createEasyCam();
-  easycam.state_reset = state;   // state to use on reset (double-click/tap)
-  easycam.setState(state, 2000); // now animate to that state
-  escorzo = true;
-  perspective();
+const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+function sleep(ms) {
+   return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-  // brush stuff
-  points = [];
-  depth = createSlider(0, 1, 0.05, 0.05);
-  depth.position(10, 10);
-  depth.style('width', '580px');
-  color = createColorPicker('#ed225d');
-  color.position(width - 70, 40);
-  // select initial brush
-  brush = sphereBrush;
+function setup() {
+   const canvas = createCanvas(600, 450, WEBGL);
+   // easycam stuff
+   let state = {
+      distance: 250,           // scalar
+      center: [0, 0, 0],       // vector
+      rotation: [0, 0, 0, 1],  // quaternion
+   };
+
+   easycam = createEasyCam();
+   easycam.state_reset = state;   // state to use on reset (double-click/tap)
+   easycam.setState(state, 2000); // now animate to that state
+   escorzo = true;
+   perspective();
+
+   // brush stuff
+   points = [];
+   depth = createSlider(0, 1, 0.05, 0.05);
+   depth.position(10, 10);
+   depth.style('width', '580px');
+   color = createColorPicker('#ed225d');
+   color.position(width - 70, 40);
+   thick = 1;
+   // select initial brush
+   brush = sphereBrush;
+}
+
+let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
+let sensibilityRotation = 0.1;
+let sensibilityZoom = 1;
+
+const spaceNavigator = async () => {
+   let gp = navigator.getGamepads()[0];
+
+   if (gp != null) {
+      if (!equals(axesPrevious, gp.axes)) {
+         axesPrevious = gp.axes;
+         easycam.rotateX(gp.axes[3] * sensibilityRotation);
+         easycam.rotateY(gp.axes[4] * sensibilityRotation);
+         easycam.rotateZ(gp.axes[5] * sensibilityRotation);
+      }
+
+      if (gp.buttons[0].value > 0 || gp.buttons[0].pressed == true) {
+         console.log("Button One");
+         if (thick > 0) { thick -= 0.1; }
+      }
+
+      else if (gp.buttons[1].value > 0 || gp.buttons[1].pressed == true) {
+         console.log("Button Two");
+         thick += 0.1;
+      }
+   }
 }
 
 function draw() {
-  update();
-  background(120);
-  push();
-  strokeWeight(0.8);
-  stroke('magenta');
-  grid({ dotted: false });
-  pop();
-  axes();
-  for (const point of points) {
-    push();
-    translate(point.worldPosition);
-    brush(point);
-    pop();
-  }
+   spaceNavigator();
+   update();
+   background(120);
+   push();
+   strokeWeight(0.8);
+   stroke('magenta');
+   grid({ dotted: false });
+   pop();
+   axes();
+   for (const point of points) {
+      push();
+      translate(point.worldPosition);
+      brush(point);
+      pop();
+   }
 }
 
 function update() {
-  let dx = abs(mouseX - pmouseX);
-  let dy = abs(mouseY - pmouseY);
-  speed = constrain((dx + dy) / (2 * (width - height)), 0, 1);
-  if (record) {
-    points.push({
-      worldPosition: treeLocation([mouseX, mouseY, depth.value()], { from: 'SCREEN', to: 'WORLD' }),
-      color: color.color(),
-      speed: speed
-    });
-  }
+   let dx = abs(mouseX - pmouseX);
+   let dy = abs(mouseY - pmouseY);
+
+   speed = constrain((dx + dy) / (2 * (width - height)), 0, 1);
+   if (record) {
+      points.push({
+         worldPosition: treeLocation([mouseX, mouseY, depth.value()], { from: 'SCREEN', to: 'WORLD' }),
+         color: color.color(),
+         thick: thick,
+         speed: speed
+      });
+   }
 }
 
 function sphereBrush(point) {
-  push();
-  noStroke();
-  // TODO parameterize sphere radius and / or
-  // alpha channel according to gesture speed
-  fill(point.color);
-  sphere(1);
-  pop();
+   push();
+   noStroke();
+   // TODO parameterize sphere radius and / or
+   // alpha channel according to gesture speed
+   fill(point.color);
+   sphere(point.thick);
+   pop();
 }
 
 function keyPressed() {
-  if (key === 'r') {
-    record = !record;
-  }
-  if (key === 'p') {
-    escorzo = !escorzo;
-    escorzo ? perspective() : ortho();
-  }
-  if (key == 'c') {
-    points = [];
-  }
+   if (key === 'r' || key === 'R') {
+      record = !record;
+   }
+
+   if (key === 'p' || key === 'P') {
+      escorzo = !escorzo;
+      escorzo ? perspective() : ortho();
+   }
+
+   if (key == 'c' || key === 'C') {
+      points = [];
+   }
+
+   if (keyCode == ESCAPE) {
+      record = false;
+   }
 }
 
 function mouseWheel(event) {
-  //comment to enable page scrolling
-  return false;
+   //comment to enable page scrolling
+   return false;
 }
