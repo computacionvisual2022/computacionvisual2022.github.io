@@ -52,7 +52,7 @@ function setup() {
    color.position(width - 70, 40);
    thick = 1;
    // select initial brush
-   brush = squareBrush;
+   brush = boxBrush;
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
