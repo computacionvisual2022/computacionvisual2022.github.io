@@ -25,9 +25,6 @@ let points;
 let record;
 
 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-// function sleep(ms) {
-//    return new Promise(resolve => setTimeout(resolve, ms));
-// }
 
 function setup() {
    const canvas = createCanvas(600, 450, WEBGL);
@@ -37,6 +34,7 @@ function setup() {
       center: [0, 0, 0],       // vector
       rotation: [0, 0, 0, 1],  // quaternion
    };
+
    brushSelect = createSelect();
    brushSelect.position(70,40);
    brushSelect.option('Esférica');
@@ -75,12 +73,12 @@ const spaceNavigator = async () => {
       }
 
       if (gp.buttons[0].value > 0 || gp.buttons[0].pressed == true) {
-         console.log("Button One");
+         // console.log("Left button");
          if (thick > 0) { thick -= 0.1; }
       }
 
       else if (gp.buttons[1].value > 0 || gp.buttons[1].pressed == true) {
-         console.log("Button Two");
+         // console.log("Right button");
          thick += 0.1;
       }
    }
@@ -96,6 +94,7 @@ function draw() {
    grid({ dotted: false });
    pop();
    axes();
+   
    for (const point of points) {
       push();
       translate(point.worldPosition);
