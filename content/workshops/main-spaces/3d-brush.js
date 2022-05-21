@@ -128,7 +128,13 @@ function brush(point) {
       sphere(point.thick)
    }else if(point.brush==='Cúbica'){
       box(point.thick);
-   }
+   }else if(point.brush==='Toroidal'){
+      torus(point.thick);
+   }else if(point.brush==='Cilíndrica'){
+      cylinder(point.thick);
+   }else if(point.brush==='Cónica'){
+      cone(point.thick);
+   }  
    pop();
 }
 
