@@ -42,7 +42,7 @@ function setup() {
    brushSelect.option('Toroidal');
    brushSelect.option('Cilíndrica');
    brushSelect.option('Cónica');
-   
+
    easycam = createEasyCam();
    easycam.state_reset = state;   // state to use on reset (double-click/tap)
    easycam.setState(state, 2000); // now animate to that state
@@ -133,7 +133,7 @@ function brush(point) {
    }else if(point.brush==='Cúbica'){
       box(point.thick);
    }else if(point.brush==='Toroidal'){
-      torus(point.thick);
+      torus(point.thick,point.thick/2);
    }else if(point.brush==='Cilíndrica'){
       cylinder(point.thick);
    }else if(point.brush==='Cónica'){
