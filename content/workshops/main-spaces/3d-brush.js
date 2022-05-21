@@ -127,7 +127,8 @@ function brush(point) {
    push();
    noStroke();
    // alpha channel according to gesture speed
-   fill(point.color);
+   let fillColor = point.color
+   fill(fillColor.setAlpha(point.speed));
    if(point.brush==='Esférica'){
       sphere(point.thick)
    }else if(point.brush==='Cúbica'){
