@@ -25,7 +25,9 @@ let points;
 let record;
 
 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-
+function preload() {
+   sunmora = loadFont('../../content/assets/Sunmora-Bold.ttf');
+ }
 function setup() {
    const canvas = createCanvas(600, 450, WEBGL);
    // easycam stuff
@@ -42,7 +44,7 @@ function setup() {
    brushSelect.option('Toroidal');
    brushSelect.option('Cilíndrica');
    brushSelect.option('Cónica');
-   textFont('Helvetica');
+   textFont(sunmora);
    textSize(width / 3);
    textAlign(CENTER, CENTER);
    easycam = createEasyCam();
