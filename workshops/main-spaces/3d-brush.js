@@ -39,6 +39,10 @@ function setup() {
    brushSelect.position(70,40);
    brushSelect.option('Esférica');
    brushSelect.option('Cúbica');
+   brushSelect.option('Toroidal');
+   brushSelect.option('Cilíndrica');
+   brushSelect.option('Cónica');
+   
    easycam = createEasyCam();
    easycam.state_reset = state;   // state to use on reset (double-click/tap)
    easycam.setState(state, 2000); // now animate to that state
