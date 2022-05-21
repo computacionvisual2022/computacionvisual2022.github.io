@@ -122,7 +122,6 @@ function update() {
 function brush(point) {
    push();
    noStroke();
-   console.log('estoy entrando pero no saliendo')
    // alpha channel according to gesture speed
    fill(point.color);
    if(point.brush==='Esférica'){
