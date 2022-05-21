@@ -42,7 +42,9 @@ function setup() {
    brushSelect.option('Toroidal');
    brushSelect.option('Cilíndrica');
    brushSelect.option('Cónica');
-
+   textFont(inconsolata);
+   textSize(width / 3);
+   textAlign(CENTER, CENTER);
    easycam = createEasyCam();
    easycam.state_reset = state;   // state to use on reset (double-click/tap)
    easycam.setState(state, 2000); // now animate to that state
