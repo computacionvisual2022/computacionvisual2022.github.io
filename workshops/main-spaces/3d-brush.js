@@ -41,7 +41,6 @@ function setup() {
    brushSelect.position(70,40);
    brushSelect.option('Esférica');
    brushSelect.option('Cúbica');
-   brushSelect.changed(mySelectEvent);
    easycam = createEasyCam();
    easycam.state_reset = state;   // state to use on reset (double-click/tap)
    easycam.setState(state, 2000); // now animate to that state
@@ -57,7 +56,7 @@ function setup() {
    color.position(width - 70, 40);
    thick = 1;
    // select initial brush
-   brush = boxBrush;
+   brush = sphereBrush;
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
@@ -100,7 +99,12 @@ function draw() {
    for (const point of points) {
       push();
       translate(point.worldPosition);
-      brush(point);
+      //brush(point);
+      if(point.brush==='Esférica'){
+         sphereBrush(point)
+      }else if(point.brush==='Cúbica'){
+         boxBrush(point)
+      }
       pop();
    }
 }
@@ -115,6 +119,7 @@ function update() {
          worldPosition: treeLocation([mouseX, mouseY, depth.value()], { from: 'SCREEN', to: 'WORLD' }),
          color: color.color(),
          thick: thick,
+         brush: brushSelect.value(),
          speed: speed
       });
    }
@@ -157,15 +162,15 @@ function keyPressed() {
    }
 }
 
-function mySelectEvent(){
-   let item = brushSelect.value();
-   if(item === 'Esférica'){
-      brush = sphereBrush;
-   }
-   if(item === 'Cúbica'){
-      brush = boxBrush;
-   }
-}
+// function mySelectEvent(){
+//    let item = brushSelect.value();
+//    if(item === 'Esférica'){
+//       brush = sphereBrush;
+//    }
+//    if(item === 'Cúbica'){
+//       brush = boxBrush;
+//    }
+// }
 
 function mouseWheel(event) {
    //comment to enable page scrolling
