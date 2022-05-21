@@ -97,7 +97,7 @@ function draw() {
    grid({ dotted: false });
    pop();
    axes();
-   
+   text('Grosor: '+thick,50,40);
    for (const point of points) {
       push();
       translate(point.worldPosition);
@@ -160,6 +160,14 @@ function keyPressed() {
 
    if (keyCode == ESCAPE) {
       record = false;
+   }
+   
+   if (keyCode == LEFT_ARROW) {
+      if (thick > 0) { thick -= 0.1; }
+   }
+
+   if (keyCode == RIGHT_ARROW) {
+      thick += 0.1; 
    }
 }
 
