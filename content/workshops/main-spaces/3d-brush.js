@@ -42,7 +42,7 @@ function setup() {
    brushSelect.option('Toroidal');
    brushSelect.option('Cilíndrica');
    brushSelect.option('Cónica');
-   textFont(inconsolata);
+   textFont('Georgia');
    textSize(width / 3);
    textAlign(CENTER, CENTER);
    easycam = createEasyCam();
