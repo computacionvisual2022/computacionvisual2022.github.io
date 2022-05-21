@@ -14,6 +14,7 @@
 let color;
 let thick;
 let depth;
+
 let brushSelect;
 
 let easycam;
@@ -122,22 +123,13 @@ function brush(point) {
    push();
    noStroke();
    // alpha channel according to gesture speed
-   if(point.brush==='Esférica'){
-      sphereBrush(point)
-   }else if(point.brush==='Cúbica'){
-      boxBrush(point)
-   }
    fill(point.color);
-   sphere(point.thick);
+   if(point.brush==='Esférica'){
+      sphere(point.thick)
+   }else if(point.brush==='Cúbica'){
+      box(point.thick);
+   }
    pop();
-}
-
-function boxBrush(point) {
-  push();
-  noStroke();
-  fill(point.color);
-  box(point.thick);
-  pop();
 }
 
 function keyPressed() {
