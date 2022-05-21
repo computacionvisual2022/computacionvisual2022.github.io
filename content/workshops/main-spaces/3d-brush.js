@@ -14,7 +14,6 @@
 let color;
 let thick;
 let depth;
-let brush;
 let brushSelect;
 
 let easycam;
@@ -54,7 +53,6 @@ function setup() {
    color.position(width - 70, 40);
    thick = 1;
    // select initial brush
-   brush = sphereBrush;
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
@@ -98,12 +96,8 @@ function draw() {
    for (const point of points) {
       push();
       translate(point.worldPosition);
-      //brush(point);
-      if(point.brush==='Esférica'){
-         sphereBrush(point)
-      }else if(point.brush==='Cúbica'){
-         boxBrush(point)
-      }
+      brush(point);
+      
       pop();
    }
 }
@@ -124,11 +118,15 @@ function update() {
    }
 }
 
-function sphereBrush(point) {
+function brush(point) {
    push();
    noStroke();
-   // TODO parameterize sphere radius and / or
    // alpha channel according to gesture speed
+   if(point.brush==='Esférica'){
+      sphereBrush(point)
+   }else if(point.brush==='Cúbica'){
+      boxBrush(point)
+   }
    fill(point.color);
    sphere(point.thick);
    pop();
@@ -160,16 +158,6 @@ function keyPressed() {
       record = false;
    }
 }
-
-// function mySelectEvent(){
-//    let item = brushSelect.value();
-//    if(item === 'Esférica'){
-//       brush = sphereBrush;
-//    }
-//    if(item === 'Cúbica'){
-//       brush = boxBrush;
-//    }
-// }
 
 function mouseWheel(event) {
    //comment to enable page scrolling
