@@ -15,6 +15,7 @@ let color;
 let thick;
 let depth;
 let brush;
+let brushSelect;
 
 let easycam;
 let state;
@@ -36,7 +37,11 @@ function setup() {
       center: [0, 0, 0],       // vector
       rotation: [0, 0, 0, 1],  // quaternion
    };
-
+   brushSelect = createSelect();
+   brushSelect.position(70,40);
+   brushSelect.option('Esférica');
+   brushSelect.option('Cúbica');
+   brushSelect.changed(mySelectEvent);
    easycam = createEasyCam();
    easycam.state_reset = state;   // state to use on reset (double-click/tap)
    easycam.setState(state, 2000); // now animate to that state
@@ -149,6 +154,16 @@ function keyPressed() {
 
    if (keyCode == ESCAPE) {
       record = false;
+   }
+}
+
+function mySelectEvent(){
+   let item = brushSelect.value();
+   if(item === 'Esférica'){
+      brush = sphereBrush;
+   }
+   if(item === 'Cúbica'){
+      brush = boxBrush;
    }
 }
 
