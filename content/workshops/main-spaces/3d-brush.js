@@ -36,7 +36,7 @@ function setup() {
    };
 
    brushSelect = createSelect();
-   brushSelect.position(70,40);
+   brushSelect.position(30,40);
    brushSelect.option('Esférica');
    brushSelect.option('Cúbica');
    brushSelect.option('Toroidal');
@@ -133,7 +133,7 @@ function brush(point) {
    }else if(point.brush==='Cúbica'){
       box(point.thick);
    }else if(point.brush==='Toroidal'){
-      torus(point.thick,point.thick/2);
+      torus(point.thick,point.thick/4);
    }else if(point.brush==='Cilíndrica'){
       cylinder(point.thick);
    }else if(point.brush==='Cónica'){
