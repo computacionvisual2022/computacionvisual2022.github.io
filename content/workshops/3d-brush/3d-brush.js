@@ -58,8 +58,8 @@ function setup() {
    thick = 1;
    thickIndicator = createDiv('Grosor: ' + thick);
    thickIndicator.position(30,90);
-   depthIndicator = createDiv('Profundidad: ' + depth);
-   depthIndicator.position(30,120);
+   depthIndicator = createDiv('Profundidad: ' + depth.value());
+   depthIndicator.position(30,110);
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
