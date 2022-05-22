@@ -164,12 +164,12 @@ function keyPressed() {
 
    else if (keyCode == LEFT_ARROW) {
       if (thick > 0) { 
-         let aux = thick - 0.1;
+         let aux = Number(thick) - 0.1;
          thick = aux.toFixed(2); }
    }
 
    else if (keyCode == RIGHT_ARROW) {
-      let aux = thick + 0.1;
+      let aux = Number(thick) + 0.1;
       thick = aux.toFixed(2);
    }
 }
