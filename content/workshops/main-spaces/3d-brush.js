@@ -37,7 +37,7 @@ function setup() {
       rotation: [0, 0, 0, 1],  // quaternion
    };
    alphaActivated = createCheckbox('alpha', false);
-   alphaActivated.position(30, 60)
+   alphaActivated.position(30, 100)
    brushSelect = createSelect();
    brushSelect.position(30, 40);
    brushSelect.option('Esférica');
@@ -62,7 +62,7 @@ function setup() {
    color.position(width - 70, 40);
    thick = 1;
    thickIndicator = createDiv('Grosor: '+thick);
-   thickIndicator.position(120,40)
+   thickIndicator.position(30,70)
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
@@ -163,11 +163,13 @@ function keyPressed() {
    }
 
    else if (keyCode == LEFT_ARROW) {
-      if (thick > 0) { thick -= 0.1; }
+      if (thick > 0) { thick -= 0.1;
+      thick = thick.toFixed(2); }
    }
 
    else if (keyCode == RIGHT_ARROW) {
       thick += 0.1;
+      thick = thick.toFixed(2);
    }
 }
 
