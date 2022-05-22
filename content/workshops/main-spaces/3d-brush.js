@@ -27,7 +27,7 @@ let record;
 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 function preload() {
    sunmora = loadFont('/workshops/main-spaces/Sunmora-Bold.ttf');
- }
+}
 function setup() {
    const canvas = createCanvas(600, 450, WEBGL);
    // easycam stuff
@@ -38,7 +38,7 @@ function setup() {
    };
 
    brushSelect = createSelect();
-   brushSelect.position(30,40);
+   brushSelect.position(30, 40);
    brushSelect.option('Esférica');
    brushSelect.option('Cúbica');
    brushSelect.option('Toroidal');
@@ -79,12 +79,12 @@ const spaceNavigator = async () => {
       }
 
       if (gp.buttons[0].value > 0 || gp.buttons[0].pressed == true) {
-         // console.log("Left button");
+         // console.log('Left button');
          if (thick > 0) { thick -= 0.1; }
       }
 
       else if (gp.buttons[1].value > 0 || gp.buttons[1].pressed == true) {
-         // console.log("Right button");
+         // console.log('Right button');
          thick += 0.1;
       }
    }
@@ -100,12 +100,12 @@ function draw() {
    grid({ dotted: false });
    pop();
    axes();
-   text('Grosor: '+thick,50,40);
+   text('Grosor: ' + thick, 50, 40);
+   
    for (const point of points) {
       push();
       translate(point.worldPosition);
       brush(point);
-      
       pop();
    }
 }
@@ -131,19 +131,14 @@ function brush(point) {
    noStroke();
    // alpha channel according to gesture speed
    let fillColor = point.color;
-   fillColor.setAlpha(255*point.speed);
+   fillColor.setAlpha(255 * point.speed);
    fill(fillColor);
-   if(point.brush==='Esférica'){
-      sphere(point.thick)
-   }else if(point.brush==='Cúbica'){
-      box(point.thick);
-   }else if(point.brush==='Toroidal'){
-      torus(point.thick,point.thick/4);
-   }else if(point.brush==='Cilíndrica'){
-      cylinder(point.thick);
-   }else if(point.brush==='Cónica'){
-      cone(point.thick);
-   }  
+   
+   if (point.brush === 'Esférica') { sphere(point.thick) }
+   else if (point.brush === 'Cúbica') { box(point.thick); }
+   else if (point.brush === 'Toroidal') { torus(point.thick, point.thick / 4); }
+   else if (point.brush === 'Cilíndrica') { cylinder(point.thick); }
+   else if (point.brush === 'Cónica') { cone(point.thick); }
    pop();
 }
 
@@ -152,25 +147,25 @@ function keyPressed() {
       record = !record;
    }
 
-   if (key === 'p' || key === 'P') {
+   else if (key === 'p' || key === 'P') {
       escorzo = !escorzo;
       escorzo ? perspective() : ortho();
    }
 
-   if (key == 'c' || key === 'C') {
+   else if (key == 'c' || key === 'C') {
       points = [];
    }
 
-   if (keyCode == ESCAPE) {
+   else if (keyCode == ESCAPE) {
       record = false;
    }
-   
-   if (keyCode == LEFT_ARROW) {
+
+   else if (keyCode == LEFT_ARROW) {
       if (thick > 0) { thick -= 0.1; }
    }
 
-   if (keyCode == RIGHT_ARROW) {
-      thick += 0.1; 
+   else if (keyCode == RIGHT_ARROW) {
+      thick += 0.1;
    }
 }
 
