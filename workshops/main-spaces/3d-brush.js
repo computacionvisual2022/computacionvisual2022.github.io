@@ -26,7 +26,7 @@ let record;
 
 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 function preload() {
-   sunmora = loadFont('./Sunmora-Bold.ttf');
+   sunmora = loadFont('/workshops/main-spaces/Sunmora-Bold.ttf');
  }
 function setup() {
    const canvas = createCanvas(600, 450, WEBGL);
