@@ -9,7 +9,6 @@
 // 2. other brushes to stylize the 3d brush, taking
 // into account its shape and alpha channel, gesture
 // speed, etc.
-
 // Brush controls
 let color;
 let thick;
@@ -26,10 +25,6 @@ let record;
 
 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
-function preload() {
-   sunmora = loadFont('/workshops/3d-brush/Sunmora-Bold.ttf');
-}
-
 function setup() {
    const canvas = createCanvas(600, 450, WEBGL);
    // easycam stuff
@@ -38,6 +33,7 @@ function setup() {
       center: [0, 0, 0],       // vector
       rotation: [0, 0, 0, 1],  // quaternion
    };
+
    alphaActivated = createCheckbox('alpha', false);
    alphaActivated.position(30, 70)
    brushSelect = createSelect();
@@ -52,7 +48,6 @@ function setup() {
    easycam.setState(state, 2000); // now animate to that state
    escorzo = true;
    perspective();
-
    // brush stuff
    points = [];
    depth = createSlider(0, 1, 0.05, 0.05);
@@ -62,9 +57,9 @@ function setup() {
    color.position(width - 70, 40);
    thick = 1;
    thickIndicator = createDiv('Grosor: ' + thick);
-   thickIndicator.position(30,90);
+   thickIndicator.position(30, 90);
    depthIndicator = createDiv('Profundidad: ' + depth.value());
-   depthIndicator.position(30,110);
+   depthIndicator.position(30, 110);
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
@@ -81,7 +76,6 @@ const spaceNavigator = async () => {
          easycam.rotateY(gp.axes[4] * sensibilityRotation);
          easycam.rotateZ(gp.axes[5] * sensibilityRotation);
       }
-
       if (gp.buttons[0].value > 0 || gp.buttons[0].pressed == true) {
          // console.log('Left button');
          if (thick > 0) { thick -= 0.1; }
@@ -93,7 +87,6 @@ const spaceNavigator = async () => {
       }
    }
 }
-
 function draw() {
    spaceNavigator();
    update();
@@ -104,8 +97,10 @@ function draw() {
    grid({ dotted: false });
    pop();
    axes();
-   depthIndicator.html('Profundidad: '+depth.value(),false);
+
+   depthIndicator.html('Profundidad: ' + depth.value(), false);
    thickIndicator.html('Grosor: ' + thick, false);
+
    for (const point of points) {
       push();
       translate(point.worldPosition);
@@ -117,7 +112,6 @@ function draw() {
 function update() {
    let dx = abs(mouseX - pmouseX);
    let dy = abs(mouseY - pmouseY);
-
    speed = constrain((dx + dy) / (2 * (width - height)), 0, 1);
    if (record) {
       points.push({
@@ -136,9 +130,8 @@ function brush(point) {
    noStroke();
    let fillColor = point.color;
    // alpha channel according to gesture speed
-   if(point.alpha) { fillColor.setAlpha(127 * (1 + point.speed));}
+   if (point.alpha) { fillColor.setAlpha(127 * (1 + point.speed)); }
    fill(fillColor);
-
    if (point.brush === 'Esférica') { sphere(point.thick) }
    else if (point.brush === 'Cúbica') { box(point.thick); }
    else if (point.brush === 'Toroidal') { torus(point.thick, point.thick / 4); }
@@ -166,9 +159,10 @@ function keyPressed() {
    }
 
    else if (keyCode == LEFT_ARROW) {
-      if (thick > 0) { 
+      if (thick > 0) {
          let aux = Number(thick) - 0.1;
-         thick = aux.toFixed(1); }
+         thick = aux.toFixed(1);
+      }
    }
 
    else if (keyCode == RIGHT_ARROW) {
