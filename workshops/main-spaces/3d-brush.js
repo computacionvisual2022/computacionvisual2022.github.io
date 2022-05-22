@@ -16,7 +16,7 @@ let thick;
 let depth;
 let thickIndicator;
 let brushSelect;
-
+let alphaActivated;
 let easycam;
 let state;
 
@@ -36,7 +36,8 @@ function setup() {
       center: [0, 0, 0],       // vector
       rotation: [0, 0, 0, 1],  // quaternion
    };
-
+   alphaActivated = createCheckBox('alpha', false);
+   alphaActivated.position(30, 60)
    brushSelect = createSelect();
    brushSelect.position(30, 40);
    brushSelect.option('Esférica');
@@ -102,7 +103,6 @@ function draw() {
    pop();
    axes();
    thickIndicator.html('Grosor: ' + thick, false);
-   console.log(thick);
    for (const point of points) {
       push();
       translate(point.worldPosition);
@@ -122,7 +122,8 @@ function update() {
          color: color.color(),
          thick: thick,
          brush: brushSelect.value(),
-         speed: speed
+         speed: speed,
+         alpha: alphaActivated.checked()
       });
    }
 }
@@ -130,11 +131,11 @@ function update() {
 function brush(point) {
    push();
    noStroke();
-   // alpha channel according to gesture speed
    let fillColor = point.color;
-   fillColor.setAlpha(255 * point.speed);
+   // alpha channel according to gesture speed
+   if(point.alpha) { fillColor.setAlpha(127 * (1 + point.speed));}
    fill(fillColor);
-   
+
    if (point.brush === 'Esférica') { sphere(point.thick) }
    else if (point.brush === 'Cúbica') { box(point.thick); }
    else if (point.brush === 'Toroidal') { torus(point.thick, point.thick / 4); }
