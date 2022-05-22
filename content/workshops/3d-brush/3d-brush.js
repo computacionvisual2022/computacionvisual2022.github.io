@@ -19,15 +19,15 @@ let brushSelect;
 let alphaActivated;
 let easycam;
 let state;
-
+let depthIndicator;
 let escorzo;
 let points;
 let record;
 
 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-function preload() {
-   sunmora = loadFont('/workshops/main-spaces/Sunmora-Bold.ttf');
-}
+//function preload() {
+//   sunmora = loadFont('/workshops/main-spaces/Sunmora-Bold.ttf');
+//}
 function setup() {
    const canvas = createCanvas(600, 450, WEBGL);
    // easycam stuff
@@ -37,7 +37,7 @@ function setup() {
       rotation: [0, 0, 0, 1],  // quaternion
    };
    alphaActivated = createCheckbox('alpha', false);
-   alphaActivated.position(30, 100)
+   alphaActivated.position(30, 70)
    brushSelect = createSelect();
    brushSelect.position(30, 40);
    brushSelect.option('Esférica');
@@ -45,8 +45,8 @@ function setup() {
    brushSelect.option('Toroidal');
    brushSelect.option('Cilíndrica');
    brushSelect.option('Cónica');
-   textFont(sunmora);
-   textSize(12);
+   //textFont(sunmora);
+   //textSize(12);
    easycam = createEasyCam();
    easycam.state_reset = state;   // state to use on reset (double-click/tap)
    easycam.setState(state, 2000); // now animate to that state
@@ -62,7 +62,7 @@ function setup() {
    color.position(width - 70, 40);
    thick = 1;
    thickIndicator = createDiv('Grosor: '+thick);
-   thickIndicator.position(30,70)
+   thickIndicator.position(30,90)
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
@@ -165,12 +165,12 @@ function keyPressed() {
    else if (keyCode == LEFT_ARROW) {
       if (thick > 0) { 
          let aux = Number(thick) - 0.1;
-         thick = aux.toFixed(2); }
+         thick = aux.toFixed(1); }
    }
 
    else if (keyCode == RIGHT_ARROW) {
       let aux = Number(thick) + 0.1;
-      thick = aux.toFixed(2);
+      thick = aux.toFixed(1);
    }
 }
 
