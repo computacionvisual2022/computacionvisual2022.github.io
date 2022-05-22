@@ -61,7 +61,7 @@ function setup() {
    color.position(width - 70, 40);
    thick = 1;
    thickIndicator = createDiv('Grosor: '+thick);
-   thickIndicator.position(80,40)
+   thickIndicator.position(120,40)
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
@@ -101,8 +101,8 @@ function draw() {
    grid({ dotted: false });
    pop();
    axes();
-   //text('Grosor: ' + thick, 50, 40);
-   
+   thickIndicator.html('Grosor: ' + thick, false);
+   console.log(thick);
    for (const point of points) {
       push();
       translate(point.worldPosition);
