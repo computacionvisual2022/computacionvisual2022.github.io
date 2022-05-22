@@ -99,6 +99,7 @@ function draw() {
    grid({ dotted: false });
    pop();
    axes();
+   depthIndicator.html('Profundidad: '+depth.value(),false);
    thickIndicator.html('Grosor: ' + thick, false);
    for (const point of points) {
       push();
