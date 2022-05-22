@@ -45,8 +45,7 @@ function setup() {
    brushSelect.option('Cilíndrica');
    brushSelect.option('Cónica');
    textFont(sunmora);
-   textSize(width / 3);
-   textAlign(CENTER, CENTER);
+   textSize(12);
    easycam = createEasyCam();
    easycam.state_reset = state;   // state to use on reset (double-click/tap)
    easycam.setState(state, 2000); // now animate to that state
