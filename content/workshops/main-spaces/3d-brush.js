@@ -14,7 +14,7 @@
 let color;
 let thick;
 let depth;
-
+let thickIndicator;
 let brushSelect;
 
 let easycam;
@@ -60,7 +60,8 @@ function setup() {
    color = createColorPicker('#ed225d');
    color.position(width - 70, 40);
    thick = 1;
-   // select initial brush
+   thickIndicator = createDiv('Grosor: '+thick);
+   thickIndicator.position(80,40)
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
@@ -100,7 +101,7 @@ function draw() {
    grid({ dotted: false });
    pop();
    axes();
-   text('Grosor: ' + thick, 50, 40);
+   //text('Grosor: ' + thick, 50, 40);
    
    for (const point of points) {
       push();
