@@ -36,7 +36,7 @@ function setup() {
       center: [0, 0, 0],       // vector
       rotation: [0, 0, 0, 1],  // quaternion
    };
-   alphaActivated = createCheckBox('alpha', false);
+   alphaActivated = createCheckbox('alpha', false);
    alphaActivated.position(30, 60)
    brushSelect = createSelect();
    brushSelect.position(30, 40);
