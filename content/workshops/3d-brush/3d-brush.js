@@ -25,9 +25,6 @@ let points;
 let record;
 
 const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-//function preload() {
-//   sunmora = loadFont('/workshops/main-spaces/Sunmora-Bold.ttf');
-//}
 function setup() {
    const canvas = createCanvas(600, 450, WEBGL);
    // easycam stuff
@@ -45,8 +42,6 @@ function setup() {
    brushSelect.option('Toroidal');
    brushSelect.option('Cilíndrica');
    brushSelect.option('Cónica');
-   //textFont(sunmora);
-   //textSize(12);
    easycam = createEasyCam();
    easycam.state_reset = state;   // state to use on reset (double-click/tap)
    easycam.setState(state, 2000); // now animate to that state
@@ -61,8 +56,10 @@ function setup() {
    color = createColorPicker('#ed225d');
    color.position(width - 70, 40);
    thick = 1;
-   thickIndicator = createDiv('Grosor: '+thick);
-   thickIndicator.position(30,90)
+   thickIndicator = createDiv('Grosor: ' + thick);
+   thickIndicator.position(30,90);
+   depthIndicator = createDiv('Profundidad: ' + depth);
+   depthIndicator.position(30,120);
 }
 
 let axesPrevious, axesInitial = [0, 0, 0, 0, 0, 0];
