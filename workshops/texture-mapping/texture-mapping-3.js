@@ -18,40 +18,45 @@ p.setup = () => {
   p.createCanvas(500, 500);
   p.pixelDensity(1);
   p.randomize();
+  basetriangle = p.createGraphics(512, 512 );
+  basetriangle.pixelDensity(1);
+  texture = p.createGraphics(512,512);
+  texture.pixelDensity(1);
 };
 
 p.draw = () => {
- 
-  basetriangle = p.createGraphics(p.width, p.height);
-  basetriangle.pixelDensity(1);
+  
+  basetriangle.clear();
   p.background('255');
+  basetriangle.loadPixels();
+  texture.loadPixels();
 
-  /*p.image(texture, 0, 0, p.width, p.height);
-  p.loadPixels();
+  
+  for (let y = 0; y < texture.height; y++){
+    for(let x = 0; x < texture.width; x ++){
+       let k = (x + y * texture.width) * 4;
+       let red = texture.pixels[k];
+       let green = texture.pixels[k + 1];
+       let blue = texture.pixels[k + 2];
 
-  /*
-  for (let y = 0; y < p.height; y++){
-    for(let x = i * strip; x < p.width; x += strip){
-       if(let k = (x + y * p.width) * 4;
-       let red = p.pixels[k];
-       let green = p.pixels[k + 1];
-       let blue = p.pixels[k + 2];
-
-       for(let j = 0; j < strip; j++){
+       
           for(let alpha = 0; alpha <= 1; alpha += 0.1){
             for(let beta = 0; beta <= 1; beta += 0.1){
               for(let gamma = 0; gamma <= 1; gamma += 0.1){
-                if((x = (alpha*row0 + beta*row1 + gamma*row2)) and (y = (alpha*col0 + beta*col1 + gamma*col2)) and ((alpha + beta + gamma) = 1 ))
-                basetriangle.set(x + j, y, p.color(red, green, blue));
+                
+                if((x == (alpha*row0 + beta*row1 + gamma*row2)) && (y == (alpha*col0 + beta*col1 + gamma*col2)) && ((alpha + beta + gamma) == 1 ))
+                basetriangle.set(x, y, p.color(red, green, blue));
+                
               }
             }
           }
-       } 
+      
      }    
   }
 
-  p.updatePixels();
-  basetriangle.updatePixels();*/
+  texture.updatePixels();
+  basetriangle.updatePixels();
+  p.image(basetriangle,0,0,512,512);
 };
 
 p.keyPressed = () => {
@@ -65,6 +70,6 @@ p.randomize = () => {
   col1 = p.int(p.random(0, texture.height));
   row2 = p.int(p.random(0, texture.width));
   col2 = p.int(p.random(0, texture.height));
-  p.triangle(row0, col0, row1, col1, row2, col2);
+  //p.triangle(row0, col0, row1, col1, row2, col2);
 };
 }, "texture-mapping-3");
