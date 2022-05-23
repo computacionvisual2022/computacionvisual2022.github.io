@@ -1,75 +1,115 @@
-new p5((p)=> {
-const ROWS = 25;
-const COLS = 25;
-const LENGTH = 20;
-const TLENGTH = 512;
-let quadrille, basetriangle;
-let row0, col0, row1, col1, row2, col2;
+let textureImage, textureImage1, textureImage2, textureImage3, textureImage4;
+let textureCanvas, triangleCanvas;
 
-let strip = 1;
-let texture;
-
-p.preload = () =>{
-  texture = p.loadImage('/workshops/texture-mapping/textures/grass.png');
+let triangleEdge = {
+   p1: { x: 0, y: 0 },
+   p2: { x: 0, y: 0 },
+   p3: { x: 0, y: 0 }
 };
 
-p.setup = () => {
-  
-  p.createCanvas(500, 500);
-  p.pixelDensity(1);
-  p.randomize();
-  basetriangle = p.createGraphics(512, 512 );
-  basetriangle.pixelDensity(1);
-  texture = p.createGraphics(512,512);
-  texture.pixelDensity(1);
+function preload() {
+   textureImage1 = loadImage('/workshops/texture-mapping/textures/dirt.png');
+   textureImage2 = loadImage('/workshops/texture-mapping/textures/grass.png');
+   textureImage3 = loadImage('/workshops/texture-mapping/textures/pavement.png');
+   textureImage4 = loadImage('/workshops/texture-mapping/textures/sand.png');
+   textureImage = textureImage1;
 };
 
-p.draw = () => {
-  
-  basetriangle.clear();
-  p.background('255');
-  basetriangle.loadPixels();
-  texture.loadPixels();
+function setup() {
+   textureIndicator = createDiv('Textura:');
+   textureIndicator.position(15, 485);
 
-  
-  for (let y = 0; y < texture.height; y++){
-    for(let x = 0; x < texture.width; x ++){
-       let k = (x + y * texture.width) * 4;
-       let red = texture.pixels[k];
-       let green = texture.pixels[k + 1];
-       let blue = texture.pixels[k + 2];
+   textureSelect = createSelect();
+   textureSelect.position(70, 485);
+   textureSelect.option('Tierra');
+   textureSelect.option('Hierba');
+   textureSelect.option('Adoquinado');
+   textureSelect.option('Arena');
 
-       
-          for(let alpha = 0; alpha <= 1; alpha += 0.1){
-            for(let beta = 0; beta <= 1; beta += 0.1){
-              for(let gamma = 0; gamma <= 1; gamma += 0.1){
-                
-                if((x == (alpha*row0 + beta*row1 + gamma*row2)) && (y == (alpha*col0 + beta*col1 + gamma*col2)) && ((alpha + beta + gamma) == 1 ))
-                basetriangle.set(x, y, p.color(red, green, blue));
-                
-              }
-            }
-          }
-      
-     }    
-  }
+   createCanvas(500, 500);
+   pixelDensity(1);
 
-  texture.updatePixels();
-  basetriangle.updatePixels();
-  p.image(basetriangle,0,0,512,512);
-};
+   triangleCanvas = createGraphics(512, 512);
+   triangleCanvas.pixelDensity(1);
 
-p.keyPressed = () => {
-  p.randomize();
-};
+   textureCanvas = createGraphics(512, 512);
+   textureCanvas.pixelDensity(1);
 
-p.randomize = () => {
-  row0 = p.int(p.random(0, texture.width));
-  col0 = p.int(p.random(0, texture.height));
-  row1 = p.int(p.random(0, texture.width));
-  col1 = p.int(p.random(0, texture.height));
-  row2 = p.int(p.random(0, texture.width));
-  col2 = p.int(p.random(0, texture.height));
-  //p.triangle(row0, col0, row1, col1, row2, col2);
-};
-}, "texture-mapping-3");
+   randomize();
+}
+
+function draw() {
+   clear();
+   triangleCanvas.clear();
+
+   switch (textureSelect.value()) {
+      case 'Hierba': textureImage = textureImage2; break;
+      case 'Adoquinado': textureImage = textureImage3; break;
+      case 'Arena': textureImage = textureImage4; break;
+      default: textureImage = textureImage1; break;
+   }
+
+   textureCanvas.image(textureImage, 0, 0, 512, 512);
+
+   triangleCanvas = mappingTextureTriangle(
+      textureCanvas, triangleCanvas,
+      triangleEdge.p1, triangleEdge.p2, triangleEdge.p3
+   );
+
+   triangle(
+      triangleEdge.p1.x, triangleEdge.p1.y,
+      triangleEdge.p2.x, triangleEdge.p2.y,
+      triangleEdge.p3.x, triangleEdge.p3.y
+   );
+
+   image(triangleCanvas, 0, 0);
+}
+
+function mappingTextureTriangle(textureCanvas, triangleCanvas, p1, p2, p3) {
+   let bbox = {
+      top: { x: Math.min(p1.x, p2.x, p3.x), y: Math.min(p1.y, p2.y, p3.y) },
+      right: { x: Math.max(p1.x, p2.x, p3.x), y: Math.max(p1.y, p2.y, p3.y) }
+   };
+
+   textureCanvas.loadPixels();
+   triangleCanvas.loadPixels();
+
+   let x, y;
+   for (y = bbox.top.y; y <= bbox.right.y; y++) {
+      for (x = bbox.top.x; x <= bbox.right.x; x++) {
+         let alpha = f_ab(x, y, p2, p3) / f_ab(p1.x, p1.y, p2, p3);
+         let theta = f_ab(x, y, p3, p1) / f_ab(p2.x, p2.y, p3, p1);
+         let gamma = f_ab(x, y, p1, p2) / f_ab(p3.x, p3.y, p1, p2);
+
+         if (alpha >= 0 && alpha <= 1 && theta >= 0 && theta <= 1 && gamma >= 0 && gamma <= 1) {
+            let k = (x + y * textureCanvas.width) * 4;
+            let red = textureCanvas.pixels[k];
+            let green = textureCanvas.pixels[k + 1];
+            let blue = textureCanvas.pixels[k + 2];
+
+            triangleCanvas.set(x, y, color(red, green, blue));
+         }
+      }
+   }
+
+   textureCanvas.updatePixels();
+   triangleCanvas.updatePixels();
+   return triangleCanvas;
+}
+
+function f_ab(x, y, pa, pb) {
+   return (pa.y - pb.y) * x + (pb.x - pa.x) * y + pa.x * pb.y - pb.x * pa.y;
+}
+
+function keyPressed() {
+   randomize();
+}
+
+function randomize() {
+   triangleEdge.p1.x = int(random(0, textureCanvas.width));
+   triangleEdge.p1.y = int(random(0, textureCanvas.height));
+   triangleEdge.p2.x = int(random(0, textureCanvas.width));
+   triangleEdge.p2.y = int(random(0, textureCanvas.height));
+   triangleEdge.p3.x = int(random(0, textureCanvas.width));
+   triangleEdge.p3.y = int(random(0, textureCanvas.height));
+}
