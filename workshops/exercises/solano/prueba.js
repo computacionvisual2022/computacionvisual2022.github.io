@@ -9,5 +9,7 @@ function setup(){
 }
 
 function draw(){
-    image(img,this.x,this.y);
+    background(20,155,255); 
+    fill(0,0,0); cursor("none"); 
+    image(img,-50,-50,100,100);
 }
