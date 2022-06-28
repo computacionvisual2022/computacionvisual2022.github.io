@@ -1,4 +1,4 @@
-let img;
+var img;
 
 function preload(){
     img = loadImage('/workshops/exercises/solano/fire_breathing.jpg');
