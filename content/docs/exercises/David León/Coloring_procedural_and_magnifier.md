@@ -12,7 +12,8 @@ include the blue channel in the uv visualization.
  
 {{< details title="uv.js" open=false >}}
 ```js
-{{</*let uvShader;
+{{</* p5-instance-div id="lilac-chaser" >}}
+let uvShader;
 
 function preload() {
   // Define geometry directly in clip space (i.e., matrices: Tree.NONE).
@@ -40,13 +41,14 @@ function draw() {
   // command also adds the texture coordinates to each of its vertices.
   quad(-1, -1, 1, -1, 1, 1, -1, 1);
 }
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
 
 {{< details title="uv.frag" open=false >}}
 ```js
-{{</*precision mediump float;
+{{</* p5-instance-div id="lilac-chaser" >}}
+precision mediump float;
 
 // the texture coordinates varying was defined in 
 // the vertex shader by treegl readShader()
@@ -58,7 +60,7 @@ void main() {
   // see: https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Swizzling
   gl_FragColor = vec4(texcoords2, 1.0 , 0.0);
 }
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
  exercise 2
@@ -73,7 +75,8 @@ void main() {
 
 {{< details title="uvcopy.js" open=false >}}
 ```js
-{{</*let uvShader;
+{{</* p5-instance-div id="lilac-chaser" >}}
+let uvShader;
 
 function preload() {
   // Define geometry directly in clip space (i.e., matrices: Tree.NONE).
@@ -102,13 +105,15 @@ function draw() {
   triangle(-1, -1, 1, -1, 1, 1);
 }
 
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
 
 {{< details title="uvcopy.frag" open=false >}}
 ```js
-{{</*precision mediump float;
+{{</*p5-instance-div id="lilac-chaser" >}}
+
+precision mediump float;
 
 // the texture coordinates varying was defined in 
 // the vertex shader by treegl readShader()
@@ -120,7 +125,7 @@ void main() {
   // see: https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Swizzling
   gl_FragColor = vec4(texcoords2, 1.0 , 0.0);
 }
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
 
@@ -138,7 +143,8 @@ Coloring brightness tools
 
 {{< details title="luma.js" open=false >}}
 ```js
-{{</*let lumaShader;
+{{</*p5-instance-div id="lilac-chaser" >}}
+let lumaShader;
 let img;
 let grey_scale;
 let hSv;
@@ -185,13 +191,14 @@ function draw() {
   background(0);
   quad(-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2);
 }
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
 
 {{< details title="luma.frag" open=false >}}
 ```js
-{{</*precision mediump float;
+{{</*p5-instance-div id="lilac-chaser" >}}
+precision mediump float;
 
 // uniforms are defined and sent by the sketch
 uniform bool grey_scale;
@@ -246,8 +253,8 @@ void main() {
 
   
 }
-*/>}}
-
+{{</p5-instance-div*/>}}
+```
 {{< /details >}}
 
 En la parte superior de la imagen encontraras unos checkbuttons, al hacer clic en ellos puedes ver la representacion que escojas de la imagen, ya sea luma, hsl, hsv o average. Si das clic en varios siempre se mostrara la ultima representación escogida.
@@ -263,7 +270,8 @@ Procedural 1
 
 {{< details title="procedural.js" open=false >}}
 ```js
-{{</*let pg;
+{{</*p5-instance-div id="lilac-chaser" >}}
+let pg;
 let truchetShader;
 
 function preload() {
@@ -304,14 +312,15 @@ function mouseMoved() {
   // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
   pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
 }
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
 
 
 {{< details title="procedural.frag" open=false >}}
 ```js
-{{</*// Author @patriciogv ( patriciogonzalezvivo.com ) - 2015
+{{</*p5-instance-div id="lilac-chaser" >}}
+// Author @patriciogv ( patriciogonzalezvivo.com ) - 2015
 
 #ifdef GL_ES
 precision mediump float;
@@ -390,7 +399,7 @@ void main (void) {
     gl_FragColor = vec4(vec3(step(st.x,st.y)),1.0);
 }
 
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
  
@@ -405,7 +414,8 @@ Procedural 2
 
 {{< details title="proc2.js" open=false >}}
 ```js
-{{</*let pg;
+{{</*p5-instance-div id="lilac-chaser" >}}
+let pg;
 let truchetShader;
 
 function preload() {
@@ -447,13 +457,14 @@ function mouseMoved() {
   pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
 }
 
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
 
 {{< details title="proc2.frag" open=false >}}
 ```js
-{{</*// Author @patriciogv ( patriciogonzalezvivo.com ) - 2015
+{{</*p5-instance-div id="lilac-chaser" >}}
+// Author @patriciogv ( patriciogonzalezvivo.com ) - 2015
 
 #ifdef GL_ES
 precision mediump float;
@@ -513,7 +524,7 @@ void main(void){
 
     gl_FragColor = vec4(color,1.0);
 }
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
 El anterior es mi patron escogido para realizar mi Procedural texture sobre un cono.
@@ -528,7 +539,8 @@ lupa
 
 {{< details title="lupa.js" open=false >}}
 ```js
-{{</*let lupaShader;
+{{</*p5-instance-div id="lilac-chaser" >}}
+let lupaShader;
 let img;
 
 
@@ -554,13 +566,14 @@ function draw() {
   quad(-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2);
 }
 
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
 
 {{< details title="lupa.frag" open=false >}}
 ```js
-{{</*precision mediump float;
+{{</*p5-instance-div id="lilac-chaser" >}}
+precision mediump float;
 
 // uniforms are defined and sent by the sketch
 uniform sampler2D texture;
@@ -594,7 +607,7 @@ void main() {
 }
 
 
-*/>}}
+{{</p5-instance-div*/>}}
 ```
 {{< /details >}}
 
