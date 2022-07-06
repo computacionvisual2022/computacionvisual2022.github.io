@@ -1,1 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Showcase Template</title><link>https://computacionvisual2022.github.io/docs/exercises/David-Le%C3%B3n/</link><description>Recent content on Showcase Template</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://computacionvisual2022.github.io/docs/exercises/David-Le%C3%B3n/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://computacionvisual2022.github.io/docs/exercises/David-Le%C3%B3n/prueba/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://computacionvisual2022.github.io/docs/exercises/David-Le%C3%B3n/prueba/</guid><description>asdasdasd</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Showcase Template</title><link>https://computacionvisual2022.github.io/docs/exercises/David-Le%C3%B3n/</link><description>Recent content on Showcase Template</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://computacionvisual2022.github.io/docs/exercises/David-Le%C3%B3n/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://computacionvisual2022.github.io/docs/exercises/David-Le%C3%B3n/Coloring_procedural_and_magnifier/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://computacionvisual2022.github.io/docs/exercises/David-Le%C3%B3n/Coloring_procedural_and_magnifier/</guid><description>Image processing # exercise 1
+include the blue channel in the uv visualization.
+[4]
+uv.js uv.frag exercise 2
+Use other shapes different than the quad as screen filters.
+[4]
+uvcopy.js uvcopy.frag exercise 3
+Coloring brightness tools
+[1] [2]
+luma.js luma.frag En la parte superior de la imagen encontraras unos checkbuttons, al hacer clic en ellos puedes ver la representacion que escojas de la imagen, ya sea luma, hsl, hsv o average.</description></item></channel></rss>
