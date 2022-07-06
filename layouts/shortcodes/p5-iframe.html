@@ -14,7 +14,6 @@
         <html>
           <head>
             <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/{{ default $defver (.Get `ver`) }}/p5.min.js></script>
-            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/{{ default $defver (.Get `ver`) }}/addons/p5.sound.min.js></script>
             {{ if isset .Params "lib1" }} <script src={{ $lib1 }}></script> {{ end }}
             {{ if isset .Params "lib2" }} <script src={{ $lib2 }}></script> {{ end }}
             {{ if isset .Params "lib3" }} <script src={{ $lib3 }}></script> {{ end }}
@@ -27,3 +26,50 @@
         </html>
       "
 ></iframe>
+
+<script>
+   let iframe = document.getElementById("{{ strings.TrimSuffix ".js" (path.Base $sketch) }}");
+
+   document.addEventListener('fullscreenchange', (event) => {
+      // if (!iframe.requestFullscreen) {
+      //    for (element of elements) {
+      //       element.style.transform = 'scale(1.2)'
+      //    }
+      // }
+   });
+
+   function onError(error) {
+         console.log(`Error: ${error}`);
+      }
+
+
+   const fullscreen = () => {     
+      if (iframe.requestFullscreen) iframe.requestFullscreen();
+      else if(iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen(); /* Safari */
+      else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen(); /* IE11 */
+
+      // let w = parseFloat("{{ default "800" (.Get `width`) }}");
+      // body = iframe.contentDocument.getElementsByTagName("html")[0];
+      // console.log(body)
+      // body.style.zoom = `${(1 - (w / 2500)) + 1}`;
+
+      // body.style.zoom = '1.66';
+
+      let elements = iframe.contentDocument.getElementsByTagName("canvas");
+
+      for (e of elements) {
+         e.style.width = '80%';
+         e.style.height = '100%';
+      }
+
+      
+   }
+</script>
+
+<br/> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<!-- <div style="width:{{ default "800" (.Get `width`) }}px;">
+   <button style="float: left; z-index:1000" onclick="fullscreen()">
+      <i class="fas fa-expand"></i>
+   </button>
+</div> -->
